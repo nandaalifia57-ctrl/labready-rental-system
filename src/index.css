@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom utilities */
+@layer components {
+  .btn-primary {
+    @apply px-6 py-2.5 bg-gradient-to-r from-primary-700 to-primary-600 text-white rounded-lg font-semibold hover:from-primary-800 hover:to-primary-700 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2.5 bg-white text-primary-700 border-2 border-primary-700 rounded-lg font-semibold hover:bg-primary-50 transition-all duration-200 active:scale-95;
+  }
+
+  .btn-accent {
+    @apply px-6 py-2.5 bg-accent-500 text-white rounded-lg font-semibold hover:bg-accent-600 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:border-primary-500 focus:outline-none transition-colors duration-200 text-gray-900;
+  }
+
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-sm font-semibold;
+  }
+}
+
+/* Loading animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Toast notification styles */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  z-index: 9999;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast.success {
+  background-color: #10b981;
+  color: white;
+}
+
+.toast.error {
+  background-color: #ef4444;
+  color: white;
+}
+
+.toast.info {
+  background-color: #3b82f6;
+  color: white;
+}
